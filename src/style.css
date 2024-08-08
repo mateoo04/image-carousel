@@ -24,3 +24,39 @@ img {
   max-width: 100%;
   display: block;
 }
+
+/*Custom styling*/
+body {
+  display: flex;
+  flex-direction: row;
+}
+
+.frame {
+  width: 80%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+.pics {
+  position: absolute;
+}
+
+.pics {
+  display: flex;
+}
+
+svg {
+  fill: #000;
+  width: 32px;
+}
+
+.icon-container {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
