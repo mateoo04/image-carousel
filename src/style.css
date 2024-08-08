@@ -28,6 +28,11 @@ img {
 /*Custom styling*/
 body {
   display: flex;
+  flex-direction: column;
+}
+
+.slideshow {
+  display: flex;
   flex-direction: row;
 }
 
@@ -38,7 +43,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
 }
 
 .pics {
@@ -59,4 +63,23 @@ svg {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.navigation-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  gap: 4px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid #000;
+}
+
+.fill {
+  background-color: #000;
 }
