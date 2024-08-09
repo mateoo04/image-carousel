@@ -20,7 +20,7 @@ const images = [
 //tracks value set to transformX
 let transformValue = 0;
 
-//makes sure image container is in format 16:9
+//ensures image container is in 16:9 format
 const adjustImageHeight = function adjustImageContainerHeight() {
   frame.style.height = `${(frame.offsetWidth / 16) * 9}px`;
 };
@@ -60,7 +60,7 @@ const addDot = function appendNavigationDot(index) {
   });
 };
 
-const autoSwitchImage = function automaticallySwitchImage() {
+const displayNextImage = function displayNextImage() {
   if (transformValue != 400) {
     transformValue += 100;
   } else {
@@ -71,8 +71,15 @@ const autoSwitchImage = function automaticallySwitchImage() {
 };
 
 let interval = setInterval(() => {
-  autoSwitchImage();
+  displayNextImage();
 }, 5000);
+
+const resetInterval = function resetImageSwitchInterval() {
+  clearInterval(interval);
+  interval = setInterval(() => {
+    displayNextImage();
+  }, 5000);
+};
 
 //click listener for forward button
 const forwardButton = document.querySelector('.forward');
@@ -83,7 +90,7 @@ forwardButton.addEventListener('click', () => {
 
   switchImage();
 
-  //   clearInterval(interval);
+  resetInterval();
 });
 
 //click listener for back button
@@ -95,7 +102,7 @@ backButton.addEventListener('click', () => {
 
   switchImage();
 
-  //   clearInterval(interval);
+  resetInterval();
 });
 
 //loading images at start
