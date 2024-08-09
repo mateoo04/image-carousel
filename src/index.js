@@ -46,6 +46,17 @@ const switchImage = function switchDisplayedImage() {
   colorDot(transformValue / 100);
 };
 
+let interval = setInterval(() => {
+  displayNextImage();
+}, 5000);
+
+const resetInterval = function resetImageSwitchInterval() {
+  clearInterval(interval);
+  interval = setInterval(() => {
+    displayNextImage();
+  }, 5000);
+};
+
 //creates a navigation dot for an image
 const addDot = function appendNavigationDot(index) {
   const dot = document.createElement('div');
@@ -57,6 +68,7 @@ const addDot = function appendNavigationDot(index) {
   dot.addEventListener('click', () => {
     transformValue = index * 100;
     switchImage();
+    resetInterval();
   });
 };
 
@@ -68,17 +80,6 @@ const displayNextImage = function displayNextImage() {
   }
 
   switchImage();
-};
-
-let interval = setInterval(() => {
-  displayNextImage();
-}, 5000);
-
-const resetInterval = function resetImageSwitchInterval() {
-  clearInterval(interval);
-  interval = setInterval(() => {
-    displayNextImage();
-  }, 5000);
 };
 
 //click listener for forward button
